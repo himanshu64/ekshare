@@ -165,7 +165,11 @@ class MethodChannelEkshare extends EksharePlatform {
       {String? title, String? image, String? imageName}) async {
     Map<String, dynamic> args;
     if (Platform.isIOS) {
-      args = <String, dynamic>{"image": image, "content": content};
+      args = <String, dynamic>{
+        "image": image,
+        "content": content,
+        "title": title
+      };
     } else {
       if (image != null) {
         File file = File(image);

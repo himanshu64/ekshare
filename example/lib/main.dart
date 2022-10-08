@@ -7,7 +7,6 @@ import 'dart:async';
 import 'package:ekshare/ekshare.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -210,8 +209,9 @@ https://thisday.page.link/cJW8
       String? image = await getFilePathForUrl(
           "https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png",
           "sticker_image");
-      String? apps =
-          await _eksharePlugin.shareSnapchat("sadkjfnsdkfj", image: image);
+      bool? apps = await _eksharePlugin.shareOptions(
+        "https://thisday.page.link/1zBR",
+      );
       print(apps.toString());
     } catch (e) {
       print(e.toString());
