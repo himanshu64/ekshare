@@ -30,7 +30,7 @@ class EkSharePlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
   private lateinit var channel : MethodChannel
-  private val callbackManager: CallbackManager = CallbackManager.Factory.create()
+  // private val callbackManager: CallbackManager = CallbackManager.Factory.create()
   private var activity: Activity? = null
   private var activeContext: Context? = null
   private var context: Context? = null
