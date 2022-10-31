@@ -6,14 +6,14 @@ import android.content.pm.PackageManager
 import android.util.Log
 import androidx.annotation.NonNull
 import androidx.core.content.FileProvider
-import com.facebook.CallbackManager
-import com.facebook.FacebookCallback
-import com.facebook.FacebookException
-import com.facebook.share.Sharer
-import com.facebook.share.model.ShareLinkContent
-import com.facebook.share.model.SharePhoto
-import com.facebook.share.model.SharePhotoContent
-import com.facebook.share.widget.ShareDialog
+// import com.facebook.CallbackManager
+// import com.facebook.FacebookCallback
+// import com.facebook.FacebookException
+// import com.facebook.share.Sharer
+// import com.facebook.share.model.ShareLinkContent
+// import com.facebook.share.model.SharePhoto
+// import com.facebook.share.model.SharePhotoContent
+// import com.facebook.share.widget.ShareDialog
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
