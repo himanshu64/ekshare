@@ -1,17 +1,16 @@
 import Flutter
 import UIKit
 
-public class SwiftEkSharePlugin: NSObject, FlutterPlugin {
+public class SwiftEksharePlugin: NSObject, FlutterPlugin {
   private var result: FlutterResult?
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "ekshare", binaryMessenger: registrar.messenger())
-    let instance = SwiftEkSharePlugin()
+    let instance = SwiftEksharePlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    // result("iOS " + UIDevice.current.systemVersion)
-    // shareOptions
+    
      if ("shareOptions" == call.method) {
         self.result = result
         result(shareFile(call: call))
@@ -25,7 +24,6 @@ public class SwiftEkSharePlugin: NSObject, FlutterPlugin {
         result(FlutterMethodNotImplemented)
     }
   }
-
   public func copyToClipboard(call: FlutterMethodCall) -> Bool {
     let args = call.arguments as? [String: Any?]
     let content = args!["content"] as? String
@@ -35,8 +33,7 @@ public class SwiftEkSharePlugin: NSObject, FlutterPlugin {
 
     return true
   }
-
-  public func shareFile(call: FlutterMethodCall) -> Bool {
+    public func shareFile(call: FlutterMethodCall) -> Bool {
     let args = call.arguments as? [String: Any?]
 
     let title = args!["title"] as? String
@@ -90,8 +87,8 @@ public class SwiftEkSharePlugin: NSObject, FlutterPlugin {
                 fakeViewController?.present(activityViewController, animated: true, completion: nil)
             }
         }
-}
 
+}
 extension UIApplication {
     class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let navigationController = controller as? UINavigationController {
@@ -115,3 +112,4 @@ class TransparentViewController: UIViewController {
         view.isOpaque = false
     }
 }
+
