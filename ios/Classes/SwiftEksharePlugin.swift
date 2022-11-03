@@ -1,11 +1,11 @@
 import Flutter
 import UIKit
 
-public class SwiftEksharePlugin: NSObject, FlutterPlugin {
+public class SwiftEkSharePlugin: NSObject, FlutterPlugin {
   private var result: FlutterResult?
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "ekshare", binaryMessenger: registrar.messenger())
-    let instance = SwiftEksharePlugin()
+    let instance = SwiftEkSharePlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 

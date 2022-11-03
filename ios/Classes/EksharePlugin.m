@@ -1,4 +1,4 @@
-#import "EksharePlugin.h"
+#import "EkSharePlugin.h"
 #if __has_include(<ekshare/ekshare-Swift.h>)
 #import <ekshare/ekshare-Swift.h>
 #else
@@ -8,8 +8,8 @@
 #import "ekshare-Swift.h"
 #endif
 
-@implementation EksharePlugin
+@implementation EkSharePlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  [SwiftEksharePlugin registerWithRegistrar:registrar];
+  [SwiftEkSharePlugin registerWithRegistrar:registrar];
 }
 @end

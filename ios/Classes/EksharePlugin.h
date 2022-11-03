@@ -1,4 +1,4 @@
 #import <Flutter/Flutter.h>
 
-@interface EksharePlugin : NSObject<FlutterPlugin>
+@interface EkSharePlugin : NSObject<FlutterPlugin>
 @end
