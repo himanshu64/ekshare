@@ -92,7 +92,10 @@ abstract class EksharePlatform extends PlatformInterface {
   }
 
   Future<bool?> shareOptions(String content,
-      {String? title, String? image, String? imageName}) async {
+      {String? title,
+      String? image,
+      String? imageName,
+      String? linkUrl}) async {
     throw UnimplementedError('shareOptions() has not been implemented.');
   }
 

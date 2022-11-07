@@ -64,7 +64,7 @@ class MockEksharePlatform
 
   @override
   Future<bool?> shareOptions(String content,
-      {String? title, String? image, String? imageName}) {
+      {String? title, String? image, String? imageName, String? linkUrl}) {
     // TODO: implement shareOptions
     throw UnimplementedError();
   }

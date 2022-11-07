@@ -6,9 +6,9 @@ class Ekshare {
   }
 
   Future<bool?> shareOptions(String content,
-      {String? title, String? image}) async {
+      {String? title, String? image, String? linkUrl}) async {
     return EksharePlatform.instance
-        .shareOptions(content, image: image, title: title);
+        .shareOptions(content, image: image, title: title, linkUrl: linkUrl);
   }
 
   Future<String?> shareTelegram(String content,

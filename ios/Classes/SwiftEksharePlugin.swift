@@ -1,5 +1,6 @@
 import Flutter
 import UIKit
+import LinkPresentation
 
 public class SwiftEksharePlugin: NSObject, FlutterPlugin {
   private var result: FlutterResult?
@@ -7,6 +8,7 @@ public class SwiftEksharePlugin: NSObject, FlutterPlugin {
     let channel = FlutterMethodChannel(name: "ekshare", binaryMessenger: registrar.messenger())
     let instance = SwiftEksharePlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
+    
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -18,13 +20,12 @@ public class SwiftEksharePlugin: NSObject, FlutterPlugin {
     if("copyToClipboard" == call.method) {
       self.result = result
       result(copyToClipboard(call: call))
-    }
-    
-    else {
+    } else {
         result(FlutterMethodNotImplemented)
     }
   }
-  public func copyToClipboard(call: FlutterMethodCall) -> Bool {
+  
+  private func copyToClipboard(call: FlutterMethodCall) -> Bool {
     let args = call.arguments as? [String: Any?]
     let content = args!["content"] as? String
 
@@ -33,27 +34,49 @@ public class SwiftEksharePlugin: NSObject, FlutterPlugin {
 
     return true
   }
-    public func shareFile(call: FlutterMethodCall) -> Bool {
+    private func shareFile(call: FlutterMethodCall) -> Bool {
     let args = call.arguments as? [String: Any?]
+
+    
 
     let title = args!["title"] as? String
     let text = args!["content"] as? String
     let filePath = args!["image"] as? String
+    let linkUrl = args!["linkUrl"] as? String
 
     if(text == nil || text!.isEmpty  ) {
       return false
     }
     var sharedItems : Array<NSObject> = Array()
+    var textList : Array<String> = Array()
+ 
 
-    if (text != nil && text != ""){
-      sharedItems.append((text as NSObject?)!)
+    if(text != nil && text != ""){
+      textList.append(text!)
     }
+ 
+    let activityViewController : UIActivityViewController
+   
+
+    var textToShare = ""
+    if (!textList.isEmpty) {
+      textToShare = textList.joined(separator: "\n\n")
+    }
+    sharedItems.append((textToShare as NSObject?)!)
+    
     if(filePath != nil && filePath != ""){
       let filePath = URL(fileURLWithPath: filePath!)
       sharedItems.append(filePath as NSObject)
     }
+     if(linkUrl != nil && linkUrl != ""){
 
-    let activityViewController = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
+     let link = URL(string: linkUrl!)
+        activityViewController = UIActivityViewController(activityItems: [link!], applicationActivities: nil)
+    }else{
+      activityViewController = UIActivityViewController(activityItems: [sharedItems], applicationActivities: nil)
+    }
+
+
 
     if UIDevice.current.userInterfaceIdiom == .pad {
           activityViewController.popoverPresentationController?.sourceView = UIApplication.topViewController()?.view

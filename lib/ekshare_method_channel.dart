@@ -162,13 +162,17 @@ class MethodChannelEkshare extends EksharePlatform {
 
   @override
   Future<bool?> shareOptions(String content,
-      {String? title, String? image, String? imageName}) async {
+      {String? title,
+      String? image,
+      String? imageName,
+      String? linkUrl}) async {
     Map<String, dynamic> args;
     if (Platform.isIOS) {
       args = <String, dynamic>{
         "image": image,
         "content": content,
-        "title": title
+        "title": title,
+        "linkUrl": linkUrl
       };
     } else {
       if (image != null) {

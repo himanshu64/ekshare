@@ -204,8 +204,13 @@ https://thisday.page.link/cJW8
           "https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png",
           "sticker_image");
       bool? apps = await _eksharePlugin.shareOptions(
-        "https://thisday.page.link/1zBR",
-      );
+          """*Organising our front line warriors*
+This day saw the institutional organization of Anganwadi workers and helpers in a trade union when the All India Federation of Anganwadi Workers and Helpers became one voice against privatization....
+Read the complete story on ThisDay app.
+https://thisday.page.link/cJW8
+""",
+          linkUrl: "https://thisday.page.link/cJW8",
+          title: "Organising our front line warriors");
       print(apps.toString());
     } catch (e) {
       print(e.toString());
