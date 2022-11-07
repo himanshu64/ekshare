@@ -61,8 +61,9 @@ public class SwiftEksharePlugin: NSObject, FlutterPlugin {
     var textToShare = ""
     if (!textList.isEmpty) {
       textToShare = textList.joined(separator: "\n\n")
+       sharedItems.append((textToShare as NSObject?)!)
     }
-    sharedItems.append((textToShare as NSObject?)!)
+   
     
     if(filePath != nil && filePath != ""){
       let filePath = URL(fileURLWithPath: filePath!)
@@ -73,7 +74,7 @@ public class SwiftEksharePlugin: NSObject, FlutterPlugin {
      let link = URL(string: linkUrl!)
         activityViewController = UIActivityViewController(activityItems: [link!], applicationActivities: nil)
     }else{
-      activityViewController = UIActivityViewController(activityItems: [sharedItems], applicationActivities: nil)
+      activityViewController = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
     }
 
 
